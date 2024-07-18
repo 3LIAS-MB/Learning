@@ -1,0 +1,74 @@
+* {
+  /*-------------------------------------------FLOAT-----------------------------------------*/
+  /*La propiedad CSS float se utiliza para controlar la alineación horizontal de elementos dentro de un contenedor. Es comúnmente utilizada para crear diseños de columnas o para colocar elementos uno al lado del otro. float tiene dos valores principales: left y right.*/
+
+  /*float: left;
+float: right;
+
+float: none;
+float: inherit;*/
+
+  /*-----------------------------------------------------------------------------------------*/
+  .caja {
+    background-color: rgb(0, 0, 0); /*RGB -> RED, GREEN, BLUE*/
+    background: rgba(
+      150,
+      150,
+      150,
+      0.5
+    ); /*RED, GREE, BLUE, ALPHA -> 4to parametro opacidad de 0 a 1
+    background: #fff; /*EL CUARTO PARAMETRO ES LA OPACIDAD*/
+  }
+
+  /*----------------------------------SIN CATEGORIA----------------------------------------------*/
+  .sin-categoria {
+    /*PARA QUITARLE AL TEXTAREA LA OPCION DE EXPANDIRSE*/
+    resize: none;
+    /*Quita los estilos de los ol y ul*/
+    list-style: none;
+    list-style-type: disc;
+    /*Lo uso para alinear en el centro a la imagen*/
+    vertical-align: middle;
+
+    /* La propiedad user-select en CSS controla si un usuario puede seleccionar o no el contenido de un elemento utilizando el ratón o el teclado. Cuando se establece en none, impide que el usuario seleccione el contenido del elemento. */
+    -webkit-user-select: antialiased;
+
+    /*auto: Este es el valor predeterminado. Permite que el navegador determine si el
+    contenido del elemento puede ser seleccionado por el usuario.
+
+    text: Permite la selección de texto dentro del elemento. Esto es útil
+    para la mayoría de los elementos de texto, como párrafos, encabezados, etc.
+
+    all: Permite la selección de todo el contenido dentro del elemento, incluidos elementos
+    que normalmente no se pueden seleccionar, como imágenes o elementos de formulario.
+
+    none: Como mencionaste anteriormente, esto impide que el usuario
+    seleccione cualquier parte del contenido dentro del elemento.
+
+    inherit: Hereda el valor de user-select del elemento padre.
+
+    element: Este valor es más específico y se usa para indicar que solo se puede seleccionar el contenido del elemento en sí, pero no su texto descendiente. Esto puede ser útil en casos donde deseas permitir la selección de elementos como botones, pero no su contenido interno.*/
+    user-select: none;
+
+    /*-----------------------*/
+    /* La propiedad white-space controla cómo se maneja el espaciado en blanco y los saltos de línea dentro del contenedor. Puedes establecer white-space: nowrap; para evitar que el texto se desborde y se ajuste en una sola línea sin saltos de línea. */
+
+    /*-----------------------*/
+
+  }
+  /*------------------------POPIEDADES DE VISUALIZACIÓN---------------------------------------*/
+  .class {
+    /*Desde el intervalo [0, 1]
+    Donde 1 es totalmente opaco*/
+    opacity: 0;
+    opacity: 0.5; /*La mitad*/
+  }
+}
+
+/*=====================================TEORIA======================================================*/
+/*"selección múltiple" o "selección de clase múltiple*/
+.caja1,
+.caja2 {
+  width: 200px;
+  height: 200px;
+}
