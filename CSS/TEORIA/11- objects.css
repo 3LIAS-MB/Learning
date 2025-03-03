@@ -4,26 +4,26 @@
 Tiene varios valores que determinan cómo se ajusta el contenido: */
 
 .caja {
-    /*La imagen o el video se estira para llenar completamente el contenedor, sin mantener
+  /*La imagen o el video se estira para llenar completamente el contenedor, sin mantener
     su relación de aspecto. Esto puede distorsionar la imagen si sus dimensiones originales
      no coinciden con las del contenedor. */
-    object-fit: fill;
-    /*Hace que el contenido se ajuste dentro de la caja manteniendo sus proporciones originales.
+  object-fit: fill;
+  /*Hace que el contenido se ajuste dentro de la caja manteniendo sus proporciones originales.
      El contenido puede queda rodeado por espacios vacíos si la relación de aspecto de la caja
-     no coincide con la relación de aspecto del contenido..*/ 
-    object-fit: contain;
-    /*Hace que el contenido cubra completamente la caja manteniendo sus proporciones originales.
+     no coincide con la relación de aspecto del contenido..*/
+  object-fit: contain;
+  /*Hace que el contenido cubra completamente la caja manteniendo sus proporciones originales.
     Puede recortar parte del contenido si la relación de aspecto de la caja no coincide con la
      relación de aspecto del contenido.*/
-    object-fit: cover;
-    /*Hace que el contenido se ajuste dentro de la caja sin mantener las proporciones originales.
+  object-fit: cover;
+  /*Hace que el contenido se ajuste dentro de la caja sin mantener las proporciones originales.
      Puede distorsionar el contenido si la relación de aspecto de la caja no coincide con la
      relación de aspecto del contenido.*/
-    object-fit: none; 
-     /*Hace que el contenido se ajuste dentro de la caja manteniendo sus proporciones originales,
+  object-fit: none;
+  /*Hace que el contenido se ajuste dentro de la caja manteniendo sus proporciones originales,
       pero elige CONTAIN o NONE según cuál resulte en un menor escalado del contenido. 
       No distorsiona el contenido y evita espacios vacíos innecesarios.*/
-    object-fit: scale-down;
+  object-fit: scale-down;
 }
 
 /*----------------------------------OBJECT-POSITION -> MULTIMEDIA Y VIDEOS---------------------------------*/
@@ -33,10 +33,12 @@ Tiene varios valores que determinan cómo se ajusta el contenido: */
  Esta propiedad es útil cuando necesitas alinear o ajustar el contenido incrustado
  dentro de su contenedor de manera precisa. */
 .caja {
-    object-position: 50% 50%; /*defecto (center)*/
-    object-position: left;
-    object-position: right;
-    object-position: top;
-    object-position: bottom;
-    object-position: -4em; /*PX - EM - % - ETC*/
+  object-position: 50% 50%;
+  /*defecto (center)*/
+  object-position: left;
+  object-position: right;
+  object-position: top;
+  object-position: bottom;
+  object-position: -4em;
+  /*PX - EM - % - ETC*/
 }

@@ -1,105 +1,146 @@
-/*---------------Gird > CONCEPTOS BASICOS ------------------------
+/*--------------- Gird -> CONCEPTOS BASICOS ------------------------
+-> Grid Container:
+Es el elemento padre que contiene todos los elementos del grid.
+Se activa con display: grid o display: inline-grid.
 
-_Grid Container
-_Grid Item
-_Grid Cell
-_Grid Tracks (Column y Row)
-_Grid Area
+-> Grid Item:
+Son los elementos hijos directos del grid container.
+Estos son los elementos que se colocan dentro del grid.
 
-_Grid Line (Column y Row)
+-> Grid Cell:
+Es la unidad básica del grid, definida por la intersección de una fila y una columna.
 
---------PROPIEDADES------------
-grid-template-rows (Gird-container)
-grid-template-columns (Gird-container)
+-> Grid Tracks (Column y Row):
+Son las filas (rows) y columnas (columns) que forman el grid.
+Se definen usando grid-template-rows y grid-template-columns.
 
--> unidades "auto" y fr
--> repeat(cantidad, tamaño/s)
+-> Grid Area:
+Es un conjunto de celdas que abarca una o más filas y columnas.
+Se define usando grid-area.
 
-------------------------------------
-grid-row-gap (grid-container)
-grid-column-gap (grid-container)
+-> Grid Line (Column y Row):
+Son las líneas divisorias entre las filas y columnas.
+Se usan para posicionar elementos específicos en el grid.
+
+/*-------------------- PROPIEDADES --------------------
+1. Definir Filas y Columnas (grid-container)
+
+grid-template-rows: 100px 200px auto; 
+grid-template-columns: 1fr 2fr 1fr;
+
+-> Unidades útiles :
+
+auto: Ajusta el tamaño según el contenido.
+fr: Fracción del espacio disponible.
+repeat(cantidad, tamaño): Repite patrones.
+
+--------------------------------------------------------
+2. Espaciado entre filas y columnas (grid container)
+grid-row-gap: 10px;
+grid-column-gap: 20px;
 
 *SHORTHAND*
-grid-gap: row column (grid-container)
+grid-gap: 10px 20px; /filas, columnas/
+
 *LO MISMO*
-gap: row column (grid-container)
+gap: 10px 20px; /filas, columnas/
 ------------------------------------
-grid-row-start (grid-item)
-grid-row-end (grid-item) |
+3. Posicionamiento de elementos (grid-items)
+Define dónde comienza y termina un elemento en las filas/columnas.
 
-grid-column-start (grid-item)
-grid-column-end (grid-item)
+grid-row-start: 1;
+grid-row-end: 2;
 
-grid-row (grid-item)
-grid-column (grid-item)
+grid-column-start: 2;
+grid-column-end: 4;
 
-------GIRD IMPLÍCITO Y EXPLÍCITO-------
-3 nuevas propiedades del grid implicito
+*SHORTHAND*
+grid-column: 1 / 3;
+grid-row: 1 / span 2; /ocupa 2 filas/
 
-grid-auto-rows (Igual que el template)
-grid-auto-columns (Igual que el template)
-grid-auto-flow: Row (Default), Column y Dense*
+-------------------- GRID IMPLÍCITO Y EXPLÍCITO --------------------
+-> Grid Explícito: Es el grid definido explícitamente con
+grid-template-rows: 100px 200px auto; 
+grid-template-columns: 1fr 2fr 1fr;
 
----------------GRID DINÁMICO------------------
-minnax()
-min-content
-max-content
-cantidad:
-auto-fill
-auto-fit
+-> Grid Implícito: Se genera automáticammente cuando 
+hay elementos que no caben en el grid explícito.
 
---------ALINEACIÓN Y CONTROL DE FLUJO-----------
-diferencia con flex:
-_la alineación es dentro de cada celda y no
-alineación total del flex container
-_cada celda sería un "flex container"
+1. Define el tamaño predeterminado de las filas implícitas.
+grid-auto-rows: 150px; (igual que template)
 
----(Propiedades del grid-container)----
+2. Define el tamaño predeterminado de las columnas implícitas
+grid-auto-columns: 1fr; (igual que template)
 
-justify-items (horizontalmente)
-align-items (verticalmente)
+3. Controla cómo se colocan los elementos implícitos
+grid-auto-flow: row; /por defecto/
+grid-auto-flow: column;
+grid-auto-flow: dense; /rellena huecos/
 
-stretch(default) - start - center - end
+-------------------- GRID DINÁMICO --------------------
+1. minnax() -> Define un rango mínimo y máximo para el tamaño de filas/columnas.
+2. min-content -> El tamaño mínimo necesario para mostrar el contenido.
+3. max-content -> El tamaño máximo necesario para mostrar el contenido.
 
-place-items: align-items justify-items
+4. auto-fill -> Crea tantas columnas/filas como quepan en el contenedor.
+5. auto-fit -> Adapta las columnas/filas existentes al espacio disponible
 
+-------------------- ALINEACIÓN Y CONTROL DE FLUJO --------------------
+Diferencia con flex: la alineación es dentro de cada celda y no
+alineación total del flex container. Cada celda sería un "flex container"
 
-----------alineación de filas y columnas-------------
-_justify-content (horizontalmente)
-align-content (verticalmente)
-_stretch(default) - start - center - end
+1. Alineación del Contenedor
+justify-content: start | end | center | space-around | space-between | space-evenly;
+align-content: start | end | center | space-around | space-between | space-evenly;
 
-mas las de flex:
+*SHORTHAND*
+place-content: center stretch; *align - justify*
+
+2. Alineación de Items
+justify-items: start | end | center | stretch (default) ;
+align-items: start | end | center | stretch (default);
+
+*SHORTHAND*
+place-items: center stretch; *align - justify*
+
+-> Más todos los de flex
 "space-arround
 *space-between
 *space-evenly
 
---------------APLICADO AL grid ITEM-----------------
-_align-self
-_justify-self
+-------------------- APLICADO AL GRID ITEM --------------------
+align-self: start | end | center | stretch (default);
+justify-self: start | end | center | stretch (default);
 
-_place-self: align-self justify-self
+*SHORTHAND*
+place-self: center center; *align - justify*
 
-Stretch(default) - start - center - end
+-> Cambia el orden de los elementos 
+order: 1;
 
-_order (igual que en flex)
+-------------------- AREAS EN GRID --------------------
+1. Define áreas nombradas en el grid (container)
+grid-template-areas:
+  "header header header"
+  "aside main main"
+  "footer footer footer";
 
----------------AREAS EN GRID-----------------
-_Al GRID CONTAINER_
-grid-template-areas: "nombre/s de area/s*;
+2. Asignar áreas a elementos: (items)
+grid-area: header;
 
-Al GRID ITEM_
-grid-area: "nombre del area"
+-------------------- NOMBRES A LAS LINEAS --------------------
+n CSS Grid, las líneas son las divisiones entre las filas y columnas. Por ejemplo:
 
-------------NOMBRES A LAS LINEAS---------------
-[line-name]
-se puede reemplazar en: GRID-ROW | GRID-COLUMN
+Si tienes 3 columnas, habrá 4 líneas verticales (una antes de cada columna y una después de la última).
+Si tienes 2 filas, habrá 3 líneas horizontales (una antes de cada fila y una después de la última).
+Estas líneas son como "marcas" que puedes usar para posicionar elementos en el grid.
 
----------------SHORTHAND-----------------------
-_Grid-template: row / columns|[ (Grid-container)
-_Grid-template: area unidad
+grid-template-columns: [inicio] 1fr [medio] 1fr [fin];
+grid-template-rows: [fila1-inicio] 100px [fila1-fin fila2-inicio] 200px [fila2-fin];
 
--> grid;
+[inicio] es el nombre de la primera línea.
+[medio] es el nombre de la línea entre la primera y segunda columna.
+[fin] es el nombre de la última línea.
 /*--------------------------------------------------------------------------------------------------------/
 
 

@@ -102,14 +102,16 @@ SE LOS PUEDE ESCRBIIR EN UNA SOLA LINEA DE CODIGO*/
     /*Los elementos secundarios se alinean en la parte superior del contenedor a lo largo
     del  eje secundario (vertical) -> e impide que se estiren a lo largo del cross axis. */
     align-items: flex-start; 
-    /*Los elementos secundarios se alinean en la parte inferior 
+    /*Los elementos secundarios se alinean en la parte inferior     
     del contenedor a lo largo del eje secundario (vertical).*/
     align-items: flex-end; 
     /*Los elementos secundarios se alinean en el centro del
     contenedor a lo largo del eje secundario (vertical).*/
     align-items: center; 
 
-    /*Dalto dice que se usa con wrap-reverse para dar un efecto -> averiguar*/
+    /* align-items: baseline; es una propiedad que se utiliza en
+    contenedores flexibles (con display: flex o display: inline-flex)
+    para alinear los elementos hijos en la línea base de su contenedor. */
     align-items: baseline; 
 }
 /*NOTA: SI LE PONEMOS UN "FLEX-DIRECTIOM: COLUM;" TODO ES AL REVES XDDD*/
